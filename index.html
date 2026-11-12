@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email Phrase Fixer — Send This Instead</title>
+  <meta name="description" content="Paste a work email. Flag stiff or non-native phrases and get natural replacements you can use right away. A free desk tool from Send This Instead.">
+  <meta name="author" content="Send This Instead">
+  <meta name="theme-color" content="#F5F0E8">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://gym-maker.github.io/email-phrase-fixer/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20fill=%22%23F5F0E8%22/%3E%3Crect%20x=%221%22%20y=%221%22%20width=%2230%22%20height=%2230%22%20fill=%22none%22%20stroke=%22%231C5446%22%20stroke-width=%222%22/%3E%3Ctext%20x=%2216%22%20y=%2222%22%20text-anchor=%22middle%22%20font-family=%22Georgia,%20Times%20New%20Roman,%20serif%22%20font-size=%2216%22%20font-weight=%22700%22%20fill=%22%231A1814%22%3ES%3C/text%3E%3Crect%20x=%228%22%20y=%2225%22%20width=%2216%22%20height=%222%22%20fill=%22%23A03A20%22/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Send This Instead">
+  <meta property="og:title" content="Email Phrase Fixer — Send This Instead">
+  <meta property="og:description" content="Paste a work email. Flag stiff or non-native phrases and get natural replacements you can use right away.">
+  <meta property="og:url" content="https://gym-maker.github.io/email-phrase-fixer/">
+  <meta property="og:image" content="https://gym-maker.github.io/email-phrase-fixer/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Email Phrase Fixer: paste a work email and get clearer phrasing.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Email Phrase Fixer — Send This Instead">
+  <meta name="twitter:description" content="Paste a work email. Flag stiff or non-native phrases and get natural replacements you can use right away.">
+  <meta name="twitter:image" content="https://gym-maker.github.io/email-phrase-fixer/og-image.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data:; font-src 'none'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <style>
+:root {
+  --cream: #F5F0E8;
+  --cream-dark: #EBE4D6;
+  --paper: #FFFBF5;
+  --ink: #1A1814;
+  --mute: #5C574E;
+  --line: #D4CDBF;
+  --rust: #A03A20;
+  --rust-soft: rgba(160, 58, 32, 0.18);
+  --pine: #1C5446;
+  --pine-soft: rgba(28, 84, 70, 0.16);
+  --amber: #8A5A14;
+  --amber-soft: rgba(196, 140, 50, 0.28);
+  --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --radius: 12px;
+  --shadow: 0 1px 2px rgba(26, 24, 20, 0.04), 0 8px 24px rgba(26, 24, 20, 0.05);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); color: var(--ink); }
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}
+header.hero { margin-bottom: 22px; }
+.kicker {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin: 0 0 10px;
+}
+h1 {
+  font-family: var(--sans);
+  font-weight: 750;
+  font-size: clamp(2rem, 5vw, 3.15rem);
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  margin: 0 0 12px;
+}
+h1 .accent { color: var(--rust); }
+.rule {
+  display: block;
+  width: 72px;
+  height: 4px;
+  background: var(--pine);
+  margin: 0 0 14px;
+}
+.lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  color: var(--ink);
+  max-width: 38em;
+  margin: 0;
+  line-height: 1.45;
+}
+.privacy { color: var(--mute); font-size: 13px; margin: 10px 0 0; }
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 22px 0 16px;
+}
+button {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 9px 14px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+button:focus-visible, a:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--pine);
+  outline-offset: 2px;
+}
+.btn-primary { background: var(--pine); color: #F5F0E8; }
+.btn-primary:hover { background: #16463b; }
+.btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--line); }
+.btn-secondary:hover { background: var(--cream-dark); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { background: var(--cream-dark); }
+.btn-tiny {
+  font-size: 12.5px;
+  font-weight: 650;
+  padding: 5px 10px;
+  background: var(--pine);
+  color: #F5F0E8;
+  border: 0;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.btn-tiny:hover { background: #16463b; }
+.btn-tiny:disabled, button:disabled { opacity: 0.45; cursor: not-allowed; }
+.score {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.score strong { font-weight: 700; }
+.dots { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.dot {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+.dot-fix { background: var(--rust-soft); color: var(--rust); }
+.dot-soften { background: var(--amber-soft); color: var(--amber); }
+.dot-tip { background: var(--pine-soft); color: var(--pine); }
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+  align-items: start;
+}
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 16px 0;
+}
+.panel-head h2 {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin: 0;
+}
+.legend { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11px; color: var(--mute); }
+.editor-shell { position: relative; margin: 10px 16px 16px; }
+#email, #backdrop {
+  font-family: var(--sans);
+  font-size: 15.5px;
+  line-height: 1.6;
+  letter-spacing: 0;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  tab-size: 4;
+}
+#backdrop {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  background: var(--cream);
+  color: transparent;
+  overflow: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+#email {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: var(--ink);
+  caret-color: var(--ink);
+  resize: none;
+  min-height: 340px;
+  display: block;
+  outline: none;
+}
+#email:focus { border-color: var(--pine); }
+#email::placeholder { color: #8A8478; }
+mark {
+  color: transparent;
+  border-radius: 3px;
+  padding: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+mark.sev-fix { background: var(--rust-soft); box-shadow: inset 0 -2px 0 var(--rust); }
+mark.sev-soften { background: var(--amber-soft); box-shadow: inset 0 -2px 0 var(--amber); }
+mark.sev-tip { background: var(--pine-soft); box-shadow: inset 0 -2px 0 var(--pine); }
+.issues { padding: 10px 12px 14px; max-height: min(70vh, 720px); overflow: auto; }
+.empty { color: var(--mute); font-size: 14.5px; padding: 18px 8px 22px; margin: 0; }
+.empty em { font-family: var(--serif); }
+.card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 12px 10px;
+  margin: 0 0 10px;
+  background: #fff;
+}
+.card.is-active { border-color: var(--pine); box-shadow: 0 0 0 2px var(--pine-soft); }
+.card-top { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.sev {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 2px 7px;
+  flex: none;
+}
+.sev-fix-label { background: var(--rust-soft); color: var(--rust); }
+.sev-soften-label { background: var(--amber-soft); color: var(--amber); }
+.sev-tip-label { background: var(--pine-soft); color: var(--pine); }
+.phrase { font-weight: 650; font-size: 14.5px; margin: 0; overflow-wrap: anywhere; }
+.why { margin: 4px 0 8px; color: var(--mute); font-size: 13.5px; line-height: 1.45; }
+.repl {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 8px;
+  background: var(--cream);
+  border-radius: 7px;
+  margin: 0 0 6px;
+}
+.repl p { margin: 0; font-size: 13.5px; line-height: 1.4; flex: 1; min-width: 0; }
+.copy-toast { font-size: 13px; color: var(--pine); font-weight: 650; min-width: 4em; }
+footer {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--mute);
+}
+footer a { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
+footer a:hover { color: var(--ink); }
+.noscript {
+  background: var(--amber-soft);
+  border: 1px solid var(--amber);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+@media (max-width: 840px) {
+  .wrap { width: min(100% - 24px, 1120px); padding: 18px 0 40px; }
+  .layout { grid-template-columns: 1fr; }
+  header.hero { margin-bottom: 14px; }
+  .toolbar { margin: 14px 0 12px; }
+  .score {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    row-gap: 6px;
+  }
+  .score strong { flex: 1 1 100%; }
+  .dots { width: 100%; }
+  .editor-shell { max-height: 42vh; }
+  #email, #backdrop { min-height: 220px; max-height: 42vh; overflow: auto; }
+  .issues { max-height: none; }
+  h1 { font-size: 1.9rem; }
+  .lede { font-size: 1.05rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <p class="kicker">A free desk tool</p>
+      <h1>Email Phrase <span class="accent">Fixer</span></h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="lede">Paste a work email. We’ll flag stiff or dated phrases and suggest something you’d actually send.</p>
+      <p class="privacy">This runs entirely in your browser. Nothing is uploaded.</p>
+    </header>
+
+    <noscript><p class="noscript">This tool needs JavaScript, which runs only on your device. Turn it on to check an email.</p></noscript>
+
+    <div class="toolbar">
+      <button type="button" class="btn-secondary" id="btn-example">Try example</button>
+      <button type="button" class="btn-primary" id="btn-check">Check</button>
+      <button type="button" class="btn-ghost" id="btn-copy" disabled>Copy fixed email</button>
+      <span class="copy-toast" id="copy-toast" role="status" aria-live="polite"></span>
+      <div class="score" id="score" role="status" aria-live="polite">Paste an email to check it.</div>
+    </div>
+
+    <div class="layout">
+      <section class="panel" aria-labelledby="editor-label">
+        <div class="panel-head">
+          <h2 id="editor-label">Your email</h2>
+          <div class="legend" aria-hidden="true">
+            <span class="dot dot-fix">Fix</span>
+            <span class="dot dot-soften">Soften</span>
+            <span class="dot dot-tip">Tip</span>
+          </div>
+        </div>
+        <div class="editor-shell">
+          <div id="backdrop" aria-hidden="true"></div>
+          <label class="visually-hidden" for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Work email to check</label>
+          <textarea id="email" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Paste a work email here. Try the example if you want to see the tool on a typical stiff draft."></textarea>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="issues-label">
+        <div class="panel-head">
+          <h2 id="issues-label">Suggestions</h2>
+        </div>
+        <div class="issues" id="issues">
+          <p class="empty">No phrases flagged yet. Paste a draft, or <em>try the example</em>.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <a href="https://3368936654923.gumroad.com/l/pjgcqqj">Made by Send This Instead · Get 5 free email templates</a>
+    </footer>
+  </div>
+  <script>
+window.__PHRASE_RULES__ = [{"id": "do_the_needful", "pattern": "\\b(?:please\\s+)?(?:do|share|make)\\s+the\\s+needful\\b", "severity": "fix", "why": "It is vague and sounds like a soft command. Name the exact action and a date.", "replacements": ["Could you [the exact action] by [date]?", "Please send [the exact item] by [date]."]}, {"id": "the_needful", "pattern": "\\bthe\\s+needful\\b", "severity": "fix", "why": "Readers outside some regions may not know what 'the needful' asks them to do.", "replacements": ["the [exact action or item]", "[the exact action]"]}, {"id": "kindly_revert_back", "pattern": "\\bkindly\\s+revert\\s+back(?:\\s+to\\s+me)?\\b", "severity": "fix", "why": "'Kindly revert back' stacks a soft command, an uncommon verb, and a redundant 'back'.", "replacements": ["Please reply by [date] with [the thing you need]", "Could you send me [the thing you need] by [date]?"]}, {"id": "kindly_revert", "pattern": "\\bkindly\\s+revert(?:\\s+to\\s+me)?\\b", "severity": "fix", "why": "'Revert' is uncommon in international workplace English, and 'kindly' can sound like a command.", "replacements": ["Please reply by [date] with [the thing you need]", "Could you get back to me by [date]?"]}, {"id": "please_revert_back", "pattern": "\\bplease\\s+revert\\s+back(?:\\s+to\\s+me)?\\b", "severity": "fix", "why": "'Revert back' is redundant, and 'revert' is unclear for many readers.", "replacements": ["Please reply by [date] with [the thing you need]", "Please get back to me by [date]"]}, {"id": "please_revert", "pattern": "\\bplease\\s+revert(?:\\s+to\\s+me|\\s+on\\s+this)?\\b", "severity": "fix", "why": "'Revert' is often read as 'undo'. Ask for a reply, a decision, or a file instead.", "replacements": ["Please reply by [date]", "Please get back to me with [the thing you need]"]}, {"id": "revert_back", "pattern": "\\brevert\\s+back(?:\\s+to\\s+me)?\\b", "severity": "fix", "why": "'Revert back' is redundant, and 'revert' is not the usual verb for a reply.", "replacements": ["reply", "get back to me"]}, {"id": "revert_me", "pattern": "\\b(?:kindly|please)?\\s*revert\\s+me\\b", "severity": "fix", "why": "'Revert me' is not standard English. Ask them to reply to you.", "replacements": ["get back to me", "reply to me"]}, {"id": "pls_revert", "pattern": "\\bpls\\s+revert\\b", "severity": "fix", "why": "The shorthand plus 'revert' looks rushed and unclear.", "replacements": ["Please reply", "Please get back to me by [date]"]}, {"id": "please_find_attached", "pattern": "\\bplease\\s+find\\s+(?:the\\s+)?attached\\b", "severity": "fix", "why": "It is stiff and often used as a whole sentence. Say what the file is and what to do with it.", "replacements": ["I've attached [file name]. Could you [review / sign / use] it by [date]?", "The [file name] is attached."]}, {"id": "please_find_enclosed", "pattern": "\\bplease\\s+find\\s+(?:the\\s+)?enclosed\\b", "severity": "fix", "why": "'Enclosed' is letter language. In email, say that you attached the file and why.", "replacements": ["I've attached [file name] for [purpose].", "The [file name] is attached."]}, {"id": "please_find_below", "pattern": "\\bplease\\s+find\\s+(?:the\\s+)?below\\b", "severity": "soften", "why": "A little stiff. You can usually just introduce the information.", "replacements": ["Here is [the information] below.", "Below is [the information]."]}, {"id": "pfa", "pattern": "\\bPFA\\b", "severity": "fix", "why": "Not everyone expands 'PFA', and it still does not say what the file is for.", "replacements": ["I've attached [file name].", "The [file name] is attached."]}, {"id": "attached_herewith", "pattern": "\\b(?:attached|enclosed)\\s+herewith\\b", "severity": "fix", "why": "'Herewith' is legal-letter wording and feels heavy in a normal work email.", "replacements": ["I've attached [file name]", "attached"]}, {"id": "writing_to_inform", "pattern": "\\bI\\s+am\\s+writing\\s+(?:this\\s+(?:e-?mail|mail)\\s+)?to\\s+inform\\s+you\\b", "severity": "fix", "why": "It delays the news. Start with the information itself.", "replacements": ["I want to let you know", "The [news, stated directly]"]}, {"id": "writing_this_email_to", "pattern": "\\bI\\s+am\\s+writing\\s+this\\s+(?:e-?mail|mail)\\s+to\\b", "severity": "soften", "why": "The reader already knows it is an email. Lead with the reason you are writing.", "replacements": ["I'm writing to", "I want to"]}, {"id": "please_be_informed", "pattern": "\\bplease\\s+be\\s+(?:informed|advised)\\s+that\\b", "severity": "fix", "why": "It sounds official and distant. Just state the information.", "replacements": ["I want to let you know that", "Just state the information directly."]}, {"id": "this_is_to_inform", "pattern": "\\bthis\\s+is\\s+to\\s+(?:inform\\s+you|bring\\s+to\\s+your\\s+(?:kind\\s+)?notice)\\b", "severity": "fix", "why": "It reads like a circular. State the fact in a plain sentence.", "replacements": ["I want to let you know", "State the information directly."]}, {"id": "hereby_inform", "pattern": "\\b(?:I\\s+)?hereby\\s+(?:inform|confirm|request)\\b", "severity": "fix", "why": "'Hereby' belongs in contracts, not most workplace email.", "replacements": ["I want to confirm", "I want to"]}, {"id": "would_like_to_inform", "pattern": "\\bI\\s+would\\s+like\\s+to\\s+(?:inform|tell)\\s+you\\b", "severity": "soften", "why": "Polite but slow. You can usually start with the news.", "replacements": ["I want to let you know", "Start with the news in the first sentence."]}, {"id": "bring_to_kind_notice", "pattern": "\\bbring(?:s|ing)?\\s+(?:this\\s+)?to\\s+your\\s+(?:kind\\s+)?(?:notice|attention)\\b", "severity": "fix", "why": "It is formal filler. Say what happened and what you need.", "replacements": ["I want to flag that", "I wanted you to know that"]}, {"id": "as_per_my_last_email", "pattern": "\\bas\\s+per\\s+my\\s+(?:last|previous|earlier)\\s+e-?mail\\b", "severity": "fix", "why": "It often sounds as if you are scolding the reader for not replying.", "replacements": ["I'm following up on my note about [topic]. The one thing I still need is [ask].", "Just following up on [topic] \u2014 could you [ask] by [date]?"]}, {"id": "per_my_last_email", "pattern": "\\bper\\s+my\\s+(?:last|previous)\\s+e-?mail\\b", "severity": "fix", "why": "Shortened or not, this usually reads as a pointed reminder.", "replacements": ["I'm following up on [topic]. I still need [ask].", "Just following up on [topic]."]}, {"id": "as_mentioned_previous_email", "pattern": "\\bas\\s+(?:mentioned|stated|noted)\\s+in\\s+my\\s+(?:previous|last|earlier)\\s+e-?mail\\b", "severity": "soften", "why": "It can feel pointed. Restate the ask instead of pointing at the earlier email.", "replacements": ["I'm following up on [topic]. I still need [ask].", "To recap, I still need [ask] by [date]."]}, {"id": "as_per_our_discussion", "pattern": "\\bas\\s+per\\s+our\\s+(?:discussion|conversation|talk)\\b", "severity": "soften", "why": "'As per' is stiff, and it only helps if you also write down what was agreed.", "replacements": ["As we discussed, [the decision or next step].", "Following our conversation, [the next step]."]}, {"id": "as_per_your_request", "pattern": "\\bas\\s+per\\s+your\\s+request\\b", "severity": "soften", "why": "A little official. 'As requested' or a plain restatement is warmer.", "replacements": ["As requested,", "Here is [the item] you asked for."]}, {"id": "as_per", "pattern": "\\bas\\s+per\\b", "severity": "soften", "why": "'As per' often makes a simple sentence sound like a memo.", "replacements": ["as", "according to"]}, {"id": "prepone", "pattern": "\\bprepone[ds]?\\b", "severity": "fix", "why": "'Prepone' is clear in some regions but unknown in many others. Say 'move earlier'.", "replacements": ["move [the meeting] earlier", "reschedule [the meeting] to an earlier time"]}, {"id": "discuss_about", "pattern": "\\bdiscuss(?:es|ed|ing)?\\s+about\\b", "severity": "fix", "why": "In English you discuss something, not 'discuss about' it.", "replacements": ["discuss", "talk about"]}, {"id": "mention_about", "pattern": "\\bmention(?:s|ed|ing)?\\s+about\\b", "severity": "fix", "why": "Use 'mention' without 'about', or switch to 'talk about'.", "replacements": ["mention", "talk about"]}, {"id": "kindly_acknowledge_receipt", "pattern": "\\bkindly\\s+acknowledge(?:\\s+the)?\\s+receipt\\b", "severity": "fix", "why": "Heavy and a little like a command. Ask them to confirm they have it, if you truly need that.", "replacements": ["Could you confirm you received this?", "Please let me know that this arrived."]}, {"id": "kindly", "pattern": "\\bkindly\\b", "severity": "soften", "why": "'Kindly' in every ask can sound dated or like a soft order. 'Please' or 'Could you' is usually warmer.", "replacements": ["please", "Could you"]}, {"id": "please_do_let_me_know", "pattern": "\\bplease\\s+do\\s+let\\s+me\\s+know\\b", "severity": "soften", "why": "The extra 'do' is meant to be polite, but it adds stiffness. 'Please let me know' is enough.", "replacements": ["Please let me know", "Let me know"]}, {"id": "do_let_me_know", "pattern": "\\bdo\\s+let\\s+me\\s+know\\b", "severity": "soften", "why": "'Do let me know' is slightly old-fashioned. A plain 'let me know' reads more naturally.", "replacements": ["let me know", "please let me know"]}, {"id": "hoping_for_kind_response", "pattern": "\\bhop(?:e|ing)\\s+for\\s+your\\s+kind\\s+(?:response|reply|consideration)\\b", "severity": "fix", "why": "It is a stock close and puts pressure on the reader without naming a date or a decision.", "replacements": ["Please let me know either way by [date].", "If you could reply by [date], that would help."]}, {"id": "awaiting_positive_response", "pattern": "\\bawaiting\\s+your\\s+(?:positive|kind|favourable|favorable)\\s+(?:response|reply)\\b", "severity": "fix", "why": "'Positive response' makes it harder for someone to say no, which can feel pushy.", "replacements": ["Please let me know either way by [date].", "I'd appreciate a reply by [date], even if the answer is no."]}, {"id": "awaiting_your_response", "pattern": "\\bawaiting\\s+your\\s+(?:response|reply)\\b", "severity": "soften", "why": "It can sound like a standstill, or a mild scold. Ask for a reply by a date instead.", "replacements": ["Please let me know by [date].", "I still need [ask] by [date]."]}, {"id": "looking_forward_kind_response", "pattern": "\\blooking\\s+forward\\s+to\\s+your\\s+kind\\s+(?:response|reply)\\b", "severity": "fix", "why": "Stock and a little presuming. Ask for a decision or a reply by a real date.", "replacements": ["Please let me know by [date].", "I look forward to your reply."]}, {"id": "looking_forward_for", "pattern": "\\blooking\\s+forward\\s+for\\b", "severity": "fix", "why": "The usual phrase is 'looking forward to', not 'for'.", "replacements": ["looking forward to", "I look forward to"]}, {"id": "looking_forward_to_hear", "pattern": "\\blooking\\s+forward\\s+to\\s+hear\\b", "severity": "fix", "why": "The usual form is 'looking forward to hearing'.", "replacements": ["looking forward to hearing", "I look forward to hearing"]}, {"id": "looking_forward_hearing_from", "pattern": "\\blooking\\s+forward\\s+to\\s+hearing\\s+from\\s+you\\b", "severity": "tip", "why": "Not wrong, but it is a default close. If you need an answer, name the date instead.", "replacements": ["Please let me know by [date].", "I look forward to your reply."]}, {"id": "sorry_inconvenience_caused", "pattern": "\\bsorry\\s+for\\s+the\\s+inconvenience\\s+caused\\b", "severity": "fix", "why": "It is a stock apology and often stands in for a plan. Say what changed and what you will do.", "replacements": ["I'm sorry for the impact. The new date is [date]. Here is what I'm doing, and here is what I need.", "I'm sorry this caused extra work. I'll [the fix] by [date]."]}, {"id": "sorry_for_the_inconvenience", "pattern": "\\bsorry\\s+for\\s+the\\s+inconvenience\\b", "severity": "soften", "why": "Fine once, but weak as a substitute for a new date or a fix. Add the plan.", "replacements": ["I'm sorry for the impact. The new date is [date].", "I'm sorry this got in the way. I'll [the next step] by [date]."]}, {"id": "hope_this_finds_you_well", "pattern": "\\b(?:I\\s+)?hope\\s+this\\s+(?:e-?mail\\s+)?finds\\s+you\\s+(?:well|in\\s+good\\s+health)\\b", "severity": "tip", "why": "Not wrong, but empty if you use it every time. Start with the reason you are writing, or a specific thanks.", "replacements": ["Start with the ask or the news.", "Thank you for [something specific]."]}, {"id": "hope_you_are_doing_well", "pattern": "\\b(?:I\\s+)?hope\\s+you(?:'re|\\s+are)\\s+(?:doing\\s+well|fine|keeping\\s+well)\\b", "severity": "tip", "why": "Fine, but overused as a first line. It is warmer when you mean it, or when you skip it and get to the point.", "replacements": ["Start with the reason you are writing.", "I hope you're well \u2014 I'm writing about [topic]."]}, {"id": "trust_this_finds_you", "pattern": "\\b(?:I\\s+)?trust\\s+(?:this\\s+(?:e-?mail\\s+)?finds\\s+you\\s+well|you\\s+are\\s+(?:doing\\s+well|fine))\\b", "severity": "soften", "why": "'Trust' here sounds formal and a little old-fashioned for most workplace email.", "replacements": ["Start with the reason you are writing.", "I hope you're well."]}, {"id": "greetings_of_the_day", "pattern": "\\bgreetings\\s+of\\s+the\\s+day\\b", "severity": "fix", "why": "This greeting is uncommon in international workplace English and can sound like a template.", "replacements": ["Hi [Name],", "Hello [Name],"]}, {"id": "just_checking_in", "pattern": "\\bjust\\s+checking\\s+in\\b", "severity": "tip", "why": "Harmless once, but empty if it is the whole email. Say what you still need and by when.", "replacements": ["I'm following up on [topic]. I still need [ask] by [date].", "Quick follow-up on [topic] \u2014 do you still have time for [ask] this week?"]}, {"id": "asap", "pattern": "\\bASAP\\b", "severity": "soften", "why": "'ASAP' does not tell anyone when you actually need it, and it can sound sharper than you mean.", "replacements": ["by [day, date, time, time zone]", "by [date], because [reason]"]}, {"id": "as_soon_as_possible", "pattern": "\\bas\\s+soon\\s+as\\s+possible\\b", "severity": "soften", "why": "Without a date, people have to guess how urgent this really is.", "replacements": ["by [day, date, time]", "by [date], because [reason]"]}, {"id": "at_the_earliest", "pattern": "\\bat\\s+the\\s+earliest\\b", "severity": "soften", "why": "It sounds urgent without giving a real deadline. A date is clearer and usually kinder.", "replacements": ["by [date]", "as soon as you can, ideally by [date]"]}, {"id": "earliest_convenience", "pattern": "\\bat\\s+your\\s+(?:earliest|earliest\\s+possible)\\s+convenience\\b", "severity": "soften", "why": "It tries to be polite and urgent at once. If you have a deadline, say it; if you don't, 'when you have a chance' is enough.", "replacements": ["by [date]", "when you have a chance"]}, {"id": "on_priority_basis", "pattern": "\\bon\\s+(?:an\\s+)?(?:priority|urgent)\\s+basis\\b", "severity": "soften", "why": "It inflates urgency without a reason or a time. Explain why the date is real.", "replacements": ["by [date], because [reason]", "this week, because [reason]"]}, {"id": "please_expedite", "pattern": "\\bplease\\s+expedite\\b", "severity": "soften", "why": "Official and a little sharp. Ask for a date and give a reason instead.", "replacements": ["Could you send this by [date]? I need it for [reason].", "If you can turn this around by [date], that would help because [reason]."]}, {"id": "treat_this_as_urgent", "pattern": "\\bplease\\s+treat\\s+this\\s+as\\s+urgent\\b", "severity": "soften", "why": "Urgency without a date or a reason is easy to ignore, or easy to resent.", "replacements": ["I need this by [date], because [reason].", "This is time-sensitive \u2014 I need a decision by [date]."]}, {"id": "for_your_immediate_action", "pattern": "\\bfor\\s+your\\s+immediate\\s+action\\b", "severity": "fix", "why": "Memo language, and it can sound like an order. Name the action and the date.", "replacements": ["Could you [the action] by [date]?", "I need [the action] by [date], because [reason]."]}, {"id": "necessary_action", "pattern": "\\b(?:please\\s+)?(?:take\\s+)?necessary\\s+action\\b", "severity": "fix", "why": "'Necessary action' does not say what to do. Name the action.", "replacements": ["Could you [the exact action] by [date]?", "Please [the exact action] by [date]."]}, {"id": "i_will_be_grateful", "pattern": "\\bI\\s+(?:will|shall|would)\\s+be\\s+(?:highly\\s+)?grateful\\b", "severity": "soften", "why": "Sincere, but a little ceremonial in everyday work email. A plain 'thank you' is usually enough.", "replacements": ["Thank you,", "I'd appreciate it if you could [the ask] by [date]."]}, {"id": "highly_obliged", "pattern": "\\b(?:I\\s+(?:shall|would)\\s+be\\s+)?highly\\s+obliged\\b", "severity": "fix", "why": "Very formal and a little old-fashioned for most workplace email.", "replacements": ["Thank you,", "I'd appreciate your help with [the ask]."]}, {"id": "thanking_you_in_anticipation", "pattern": "\\bthanking\\s+you\\s+in\\s+anticipation\\b", "severity": "fix", "why": "A stock close that thanks people for something they have not done yet, and can feel presuming.", "replacements": ["Thank you,", "Thanks, and please let me know if [date] does not work."]}, {"id": "thanking_you", "pattern": "\\bthanking\\s+you\\b", "severity": "fix", "why": "'Thanking you' as a sign-off is dated. 'Thank you,' or 'Thanks,' is the usual close.", "replacements": ["Thank you,", "Thanks,"]}, {"id": "thanks_in_advance", "pattern": "\\bthanks?(?:\\s+you)?\\s+in\\s+advance\\b", "severity": "tip", "why": "Common, but it can assume a yes. Thank them after they help, or thank them and give an easy way to say no.", "replacements": ["Thank you,", "Thanks \u2014 and if this timing does not work, just tell me."]}, {"id": "respected_sir", "pattern": "\\brespected\\s+(?:sir|madam|ma'?am)(?:\\s*[/,&]\\s*(?:sir|madam|ma'?am))?\\b", "severity": "fix", "why": "This greeting is unusual in most international workplaces and can feel stiff. Use a name if you have one.", "replacements": ["Hi [Name],", "Hello [Name],"]}, {"id": "dear_sir_madam", "pattern": "\\bdear\\s+sir(?:\\s*(?:/|,?\\s*or)\\s*madam)?\\b", "severity": "fix", "why": "'Dear Sir or Madam' is almost never the best option \u2014 find a name, or write 'Hello,' and name the team.", "replacements": ["Hi [Name],", "Hello,"]}, {"id": "please_advise", "pattern": "\\bplease\\s+advise\\b", "severity": "fix", "why": "As a request, it is vague. Say what decision or information you need, and by when.", "replacements": ["I need a decision on [A or B] by [date]. I recommend [A] because [reason].", "Could you let me know [the specific question] by [date]?"]}, {"id": "go_through_and_advise", "pattern": "\\b(?:please\\s+)?go\\s+through\\s+this(?:\\s+and\\s+advise)?\\b", "severity": "fix", "why": "It is vague and a little like an order. Say what to look at, and what kind of response you need.", "replacements": ["Could you review [the document] and share comments on [the main question] by [date]?", "Could you take a look at [the document] and let me know if [specific question]?"]}, {"id": "please_go_through", "pattern": "\\bplease\\s+go\\s+through\\b", "severity": "soften", "why": "'Go through' is a little vague. 'Review' or 'take a look at' is clearer.", "replacements": ["Could you review", "Please take a look at"]}, {"id": "for_your_kind_perusal", "pattern": "\\bfor\\s+your\\s+kind\\s+(?:perusal|information|consideration|reference)\\b", "severity": "fix", "why": "Letter-formal and vague. Say what the file is and what, if anything, you need the reader to do.", "replacements": ["for your review \u2014 could you [the ask] by [date]?", "I've attached this for [purpose]. No action needed unless [exception]."]}, {"id": "for_your_kind_attention", "pattern": "\\bfor\\s+(?:your\\s+)?kind\\s+attention\\b", "severity": "fix", "why": "Stock memo language. Say why you are sending it and what you need.", "replacements": ["for your review", "I wanted you to see this because [reason]."]}, {"id": "please_ignore_previous", "pattern": "\\bplease\\s+ignore\\s+my\\s+previous\\s+e-?mail\\b", "severity": "soften", "why": "Easy to miss in a thread. Use a clear subject like CORRECTION, and state the new fact and the old one.", "replacements": ["Correction: [the new fact]. Please disregard [the old fact] in my earlier email.", "Sorry \u2014 the correct [detail] is [new fact], not [old fact]."]}, {"id": "sorry_to_bother", "pattern": "\\bsorry\\s+to\\s+(?:bother|disturb|trouble)\\s+you\\b", "severity": "tip", "why": "If the email is reasonable, you do not need to apologize for sending it. Start with the ask.", "replacements": ["Start with the ask.", "I know this week is full \u2014 could you still [the ask]?"]}, {"id": "sorry_for_bothering", "pattern": "\\bsorry\\s+for\\s+(?:bothering|disturbing|troubling)\\s+you\\b", "severity": "tip", "why": "An apology for existing, especially as an opening, makes a normal request feel heavier than it is.", "replacements": ["Start with the ask.", "If now is a bad time, tell me what would work."]}, {"id": "let_me_know_your_thoughts", "pattern": "\\blet\\s+me\\s+know\\s+your\\s+thoughts\\b", "severity": "tip", "why": "Fine when you truly want open comments. If you need a decision, ask A or B, and give a default date.", "replacements": ["Which option do you prefer, A or B? If I don't hear from you by [date], I'll go with A.", "Could you confirm [the decision] by [date]?"]}, {"id": "feel_free_questions", "pattern": "\\b(?:please\\s+)?feel\\s+free\\s+to\\s+(?:contact|reach\\s+out to|reach out to)\\s+me\\s+if\\s+you\\s+have\\s+any\\s+questions\\b", "severity": "tip", "why": "Harmless, but it is a default last line. If they might have questions, say what to do.", "replacements": ["If the date doesn't work, tell me what would.", "If anything in this is unclear, reply and I'll explain."]}, {"id": "dont_hesitate", "pattern": "\\bdon'?t\\s+hesitate\\s+to\\s+(?:contact|reach\\s+out|ask|let\\s+me\\s+know)\\b", "severity": "tip", "why": "A stock offer of help. A specific next step is easier to take.", "replacements": ["If you have questions, just reply.", "If this raises any issues, tell me and I'll adjust."]}, {"id": "havent_heard_back", "pattern": "\\bI\\s+haven'?t\\s+heard\\s+back\\s+from\\s+you\\b", "severity": "soften", "why": "It can sound like a scold. Restate the ask and the date instead of pointing at the silence.", "replacements": ["I'm following up on [topic]. I still need [ask] by [date].", "Just bumping this in case it got buried \u2014 could you [ask] by [date]?"]}, {"id": "not_a_priority_for_you", "pattern": "\\b(?:I\\s+guess\\s+)?this\\s+isn'?t\\s+a\\s+priority\\s+for\\s+you\\b", "severity": "fix", "why": "This reads as sarcasm, even if you are frustrated. Stay on the work and the date.", "replacements": ["I still need [ask] by [date] so I can [reason].", "If this is no longer needed, just tell me and I'll close it out."]}, {"id": "see_you_opened", "pattern": "\\bI\\s+(?:can\\s+see|saw|noticed)\\s+you\\s+opened\\s+this\\b", "severity": "fix", "why": "Using a read receipt as evidence feels like surveillance and usually damages trust.", "replacements": ["I'm following up on [topic]. I still need [ask] by [date].", "Just checking whether you had a chance to look at [topic]."]}, {"id": "with_due_respect", "pattern": "\\bwith\\s+(?:all\\s+)?due\\s+respect\\b", "severity": "soften", "why": "It often signals that a disagreement is coming, and can sound tense before you make your point.", "replacements": ["I see it differently \u2014 [your point].", "I have a concern about [the issue]."]}, {"id": "humble_request", "pattern": "\\b(?:it\\s+is\\s+my\\s+)?humble\\s+request\\b|\\bI\\s+humbly\\s+request\\b", "severity": "fix", "why": "Over-formal for most workplace asks. A clear 'could you' is more respectful in international English.", "replacements": ["Could you [the ask]?", "Would you be willing to [the ask]?"]}, {"id": "the_undersigned", "pattern": "\\bthe\\s+undersigned\\b", "severity": "fix", "why": "Legal-letter wording. In email, use 'I'.", "replacements": ["I", "me"]}, {"id": "in_this_regard", "pattern": "\\bin\\s+this\\s+regard\\b", "severity": "soften", "why": "Filler from formal correspondence. You can usually cut it, or say 'on this'.", "replacements": ["on this", "Cut the phrase and go straight to the point."]}, {"id": "in_this_connection", "pattern": "\\bin\\s+this\\s+connection\\b", "severity": "fix", "why": "Dated memo language. Cut it, or write 'about this' or 'on that point'.", "replacements": ["about this", "Cut the phrase."]}, {"id": "at_your_end", "pattern": "\\bat\\s+your\\s+end\\b", "severity": "soften", "why": "Common in some regions, but a little vague elsewhere. 'On your side' or a named person or team is clearer.", "replacements": ["on your side", "from [the team or person]"]}, {"id": "do_the_same_verb", "pattern": "\\b(?:arrange|approve|check|confirm|do|find|forward|review|share|send|update|need|provide)\\s+the\\s+same\\b", "severity": "fix", "why": "'The same' as a stand-in for the actual item is easy to misread. Repeat the noun.", "replacements": ["[the exact item]", "it"]}, {"id": "the_same_is", "pattern": "\\bthe\\s+same\\s+(?:is|has\\s+been|will\\s+be|are)\\b", "severity": "fix", "why": "This use of 'the same' sounds like a form letter. Name the thing you mean.", "replacements": ["[the exact item] is", "it is"]}, {"id": "i_am_yet_to_receive", "pattern": "\\bI\\s+am\\s+yet\\s+to\\s+receive\\b", "severity": "soften", "why": "A little formal, and it can sound like a complaint. A calm follow-up with the ask is clearer.", "replacements": ["I haven't received [the item] yet. Could you send it by [date]?", "I'm still waiting on [the item] so I can [reason]."]}, {"id": "trailing_email", "pattern": "\\b(?:the\\s+)?trailing\\s+(?:e-?mail|mail|message)\\b", "severity": "fix", "why": "'Trailing email' is uncommon outside some regions. Say 'the email below' or restate the point.", "replacements": ["the email below", "my earlier email about [topic]"]}, {"id": "please_refer_the", "pattern": "\\bplease\\s+refer\\s+the\\b", "severity": "fix", "why": "The usual phrase is 'please refer to'. Even better, tell them what to look at and why.", "replacements": ["please see", "please refer to"]}, {"id": "reply_back", "pattern": "\\breply\\s+back\\b", "severity": "fix", "why": "'Back' is already in the idea of a reply. 'Reply' or 'get back to me' is enough.", "replacements": ["reply", "get back to me"]}, {"id": "return_back", "pattern": "\\breturn\\s+back\\b", "severity": "fix", "why": "'Return back' is redundant. Use 'return' or 'send back'.", "replacements": ["return", "send back"]}, {"id": "comprise_of", "pattern": "\\bcomprises?\\s+of\\b", "severity": "fix", "why": "The usual forms are 'comprises' or 'consists of', not 'comprises of'.", "replacements": ["comprises", "consists of"]}, {"id": "despite_of", "pattern": "\\bdespite\\s+of\\b", "severity": "fix", "why": "Use 'despite' or 'in spite of', not 'despite of'.", "replacements": ["despite", "in spite of"]}, {"id": "cope_up_with", "pattern": "\\bcope\\s+up\\s+with\\b", "severity": "fix", "why": "The usual phrase is 'cope with', without 'up'.", "replacements": ["cope with", "manage"]}, {"id": "request_you_to", "pattern": "\\b(?:I\\s+(?:would\\s+like\\s+to\\s+)?request\\s+you\\s+to|request\\s+you\\s+to)\\b", "severity": "soften", "why": "'I request you to' is heavier than it needs to be. 'Could you' is clearer and usually more polite.", "replacements": ["Could you", "Would you be willing to"]}, {"id": "seek_kind_approval", "pattern": "\\bseek(?:ing)?\\s+your\\s+(?:kind\\s+)?approval\\b", "severity": "soften", "why": "A little ceremonial. Ask for the approval and say what happens next.", "replacements": ["Could you approve [the item] by [date]?", "Are you okay with [the proposal]? If so, I'll [next step]."]}, {"id": "as_you_are_aware", "pattern": "\\bas\\s+you\\s+(?:may\\s+be|are)\\s+aware\\b", "severity": "tip", "why": "It can sound as if the reader should already know, which may sting. A short recap is safer.", "replacements": ["As a quick recap,", "Restate the fact in one line."]}, {"id": "needless_to_say", "pattern": "\\bneedless\\s+to\\s+say\\b", "severity": "tip", "why": "If it is needless, you can usually cut it. If it matters, just say it.", "replacements": ["Cut the phrase and state the point.", "State the point directly."]}, {"id": "it_is_to_be_noted", "pattern": "\\bit\\s+is\\s+to\\s+be\\s+noted\\s+that\\b", "severity": "fix", "why": "Passive and official. Just make the point.", "replacements": ["Note that", "State the point directly."]}, {"id": "please_note_that", "pattern": "\\bplease\\s+note\\s+that\\b", "severity": "tip", "why": "Useful once in a while, but easy to overuse. If the fact matters, a plain sentence is often stronger.", "replacements": ["State the fact directly.", "One thing to flag:"]}, {"id": "touch_base", "pattern": "\\b(?:wanted\\s+to\\s+)?touch\\s+base\\b", "severity": "tip", "why": "Overused, and it does not say why you are writing. Name the topic.", "replacements": ["I wanted to follow up on [topic]", "Could we talk briefly about [topic]?"]}, {"id": "circle_back", "pattern": "\\bcircl(?:e|ing)\\s+back\\b", "severity": "tip", "why": "Fine in speech, a little vague in email. Say what you are returning to, or when you will.", "replacements": ["I'll follow up on [topic] by [date]", "I'm following up on [topic]"]}, {"id": "a_quick_call", "pattern": "\\ba\\s+quick\\s+call\\b", "severity": "tip", "why": "'Quick' means different things to different people. Give a length, a topic, and some times.", "replacements": ["a 15-minute call about [topic]", "15 minutes this week to discuss [topic]"]}, {"id": "anytime_is_fine", "pattern": "\\banytime\\s+is\\s+fine(?:\\s+for\\s+me)?\\b", "severity": "soften", "why": "It often slows scheduling down. Offer two or three real options instead.", "replacements": ["I'm free [two or three options, with time zone]", "Thursday at 10:00 or Friday at 14:00, [time zone], both work for me"]}, {"id": "sorry_if_offended", "pattern": "\\bsorry\\s+if\\s+anyone\\s+was\\s+offended\\b", "severity": "fix", "why": "This is not an apology. It puts the problem on the other person's reaction.", "replacements": ["I'm sorry I [the specific action]. I'll [the fix].", "I'm sorry for [the impact]. Here is what I'm doing next."]}, {"id": "sorry_you_feel_that_way", "pattern": "\\bsorry\\s+you\\s+feel\\s+that\\s+way\\b", "severity": "fix", "why": "It sounds dismissive. Apologize for what happened, and say what you will do.", "replacements": ["I'm sorry [the thing that went wrong]. Here's what I can do.", "You're right that [the issue]. I'll [the next step] by [date]."]}, {"id": "thats_not_my_job", "pattern": "\\bthat'?s\\s+not\\s+my\\s+job\\b", "severity": "fix", "why": "It sounds like a refusal to help. Talk about scope, owners, and dates instead.", "replacements": ["That's outside my scope \u2014 [Name] owns this, and I'm copying them.", "I can't take this on without dropping [other work]. Can we adjust the date or the owner?"]}, {"id": "squeeze_it_in", "pattern": "\\b(?:try\\s+to\\s+)?squeeze\\s+it\\s+in\\b", "severity": "soften", "why": "If you already know you cannot do it, this sets a false expectation. Offer a clear yes, no, or new date.", "replacements": ["I can't take this on by [date]. I could do it by [new date], or [a smaller version].", "I won't be able to do this week. The earliest I can start is [date]."]}, {"id": "things_were_crazy", "pattern": "\\bthings\\s+(?:were|have\\s+been)\\s+crazy\\b", "severity": "soften", "why": "It is vague, and it can sound like you are blaming the situation instead of owning the delay.", "replacements": ["The delay is because [one honest reason].", "I got pulled onto [higher-priority work], which delayed this by [time]."]}, {"id": "just_wondering_if_maybe", "pattern": "\\bI\\s+was\\s+just\\s+wondering\\s+if\\s+(?:maybe\\s+)?you\\s+could(?:\\s+possibly)?\\b", "severity": "soften", "why": "Too many softeners hide the ask and make the reader work. A direct 'could you' is still polite.", "replacements": ["Could you", "Would you be able to"]}, {"id": "pls_plz", "pattern": "\\bpl[sz]\\b", "severity": "soften", "why": "Fine in chat; in email it can look careless. 'Please' is safer.", "replacements": ["please", "Please"]}, {"id": "your_good_self", "pattern": "\\byour\\s+good\\s+self\\b", "severity": "fix", "why": "Over-formal and uncommon in international workplace English. Use 'you'.", "replacements": ["you", "your"]}, {"id": "i_beg_to", "pattern": "\\bI\\s+beg\\s+to\\s+(?:inform|differ|request|state)\\b", "severity": "fix", "why": "Very old-fashioned. State the information, or disagree calmly, without 'beg'.", "replacements": ["I want to let you know", "I see it differently"]}, {"id": "take_this_opportunity", "pattern": "\\bI\\s+(?:would\\s+like\\s+to|want\\s+to)\\s+take\\s+this\\s+opportunity\\s+to\\b", "severity": "soften", "why": "A long ramp to the point. You can usually start with the thanks, the ask, or the news.", "replacements": ["I want to", "Start with the thanks, the ask, or the news."]}, {"id": "first_of_all_i_would", "pattern": "\\bfirst\\s+of\\s+all\\s*,?\\s*I\\s+would\\s+like\\s+to\\b", "severity": "soften", "why": "A slow opening. Lead with the reason you are writing.", "replacements": ["I want to", "Start with the ask or the news."]}, {"id": "please_do_needful_arrangements", "pattern": "\\bplease\\s+(?:do|make)\\s+the\\s+needful\\s+arrangements\\b", "severity": "fix", "why": "Vague. Say what needs arranging, and by when.", "replacements": ["Could you arrange [the exact thing] by [date]?", "Please set up [the exact thing] for [date]."]}, {"id": "prompt_response_appreciated", "pattern": "\\b(?:your\\s+)?prompt\\s+(?:response|reply)\\s+(?:is|would\\s+be)\\s+(?:highly\\s+)?appreciated\\b", "severity": "soften", "why": "Polite on the surface, but it still means 'hurry' without a date.", "replacements": ["If you can reply by [date], that would help because [reason].", "Please let me know by [date]."]}, {"id": "kind_reminder", "pattern": "\\b(?:a\\s+)?kind\\s+reminder\\b", "severity": "tip", "why": "Often fine, but 'kind' does not soften a vague reminder. Restate the ask and the date.", "replacements": ["A reminder: I still need [ask] by [date].", "Just following up on [topic] \u2014 could you [ask] by [date]?"]}, {"id": "please_help_to", "pattern": "\\bplease\\s+help\\s+to\\b", "severity": "soften", "why": "'Please help me [verb]' or 'Could you [verb]' usually sounds more natural than 'help to'.", "replacements": ["Could you", "Please help me"]}, {"id": "can_you_able_to", "pattern": "\\bcan\\s+you\\s+able\\s+to\\b", "severity": "fix", "why": "The usual forms are 'can you' or 'are you able to', not both.", "replacements": ["could you", "are you able to"]}, {"id": "until_unless", "pattern": "\\buntil\\s+unless\\b", "severity": "fix", "why": "Use 'until' or 'unless', not both together.", "replacements": ["unless", "until"]}, {"id": "confirm_me", "pattern": "\\b(?:please\\s+|kindly\\s+)?confirm\\s+me\\b", "severity": "fix", "why": "The usual phrase is 'confirm with me' or 'confirm that\u2026', not 'confirm me'.", "replacements": ["confirm with me", "let me know"]}, {"id": "for_your_information_and_necessary_action", "pattern": "\\bfor\\s+your\\s+information\\s+and\\s+necessary\\s+action\\b", "severity": "fix", "why": "Memo shorthand. Say whether they need to do something, and what.", "replacements": ["For your information \u2014 no action needed.", "Could you [the exact action] by [date]?"]}];
+window.__PHRASE_EXAMPLE__ = "Respected Sir,\n\nI hope this email finds you well. Greetings of the day.\n\nI am writing to inform you that I have completed the Q3 proposal. PFA the deck for your kind perusal. Please go through this and advise.\n\nAs per my last email, I am yet to receive your feedback. I haven't heard back from you, so I am just checking in.\n\nI was just wondering if maybe you could possibly review it ASAP. Kindly revert back at the earliest. Please do the needful and arrange the same.\n\nSorry to bother you, and sorry for the inconvenience caused. Hoping for your kind response. I shall be grateful for your kind consideration.\n\nThanking you in anticipation,\nPriya";
+(function () {
+  "use strict";
+
+  var RULES = window.__PHRASE_RULES__;
+  var EXAMPLE = window.__PHRASE_EXAMPLE__;
+
+  var emailEl = document.getElementById("email");
+  var backdrop = document.getElementById("backdrop");
+  var issuesEl = document.getElementById("issues");
+  var scoreEl = document.getElementById("score");
+  var copyBtn = document.getElementById("btn-copy");
+  var toast = document.getElementById("copy-toast");
+  var currentMatches = [];
+  var debounceTimer = null;
+  var toastTimer = null;
+
+  function severityRank(sev) {
+    if (sev === "fix") return 0;
+    if (sev === "soften") return 1;
+    return 2;
+  }
+
+  function analyze(text) {
+    var found = [];
+    for (var i = 0; i < RULES.length; i++) {
+      var rule = RULES[i];
+      var re = new RegExp(rule.pattern, "gi");
+      var m;
+      while ((m = re.exec(text)) !== null) {
+        if (!m[0]) {
+          re.lastIndex += 1;
+          continue;
+        }
+        found.push({
+          start: m.index,
+          end: m.index + m[0].length,
+          text: m[0],
+          rule: rule
+        });
+      }
+    }
+    found.sort(function (a, b) {
+      if (a.start !== b.start) return a.start - b.start;
+      var len = (b.end - b.start) - (a.end - a.start);
+      if (len !== 0) return len;
+      return severityRank(a.rule.severity) - severityRank(b.rule.severity);
+    });
+    var taken = [];
+    for (var j = 0; j < found.length; j++) {
+      var item = found[j];
+      var overlaps = false;
+      for (var k = 0; k < taken.length; k++) {
+        var t = taken[k];
+        if (!(item.end <= t.start || item.start >= t.end)) {
+          overlaps = true;
+          break;
+        }
+      }
+      if (!overlaps) taken.push(item);
+    }
+    return taken;
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, function (c) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+    });
+  }
+
+  function countsOf(matches) {
+    var c = { fix: 0, soften: 0, tip: 0 };
+    for (var i = 0; i < matches.length; i++) c[matches[i].rule.severity] += 1;
+    return c;
+  }
+
+  function renderBackdrop(text, matches) {
+    if (!text) {
+      backdrop.innerHTML = "";
+      return;
+    }
+    var html = "";
+    var cursor = 0;
+    for (var i = 0; i < matches.length; i++) {
+      var m = matches[i];
+      html += escapeHtml(text.slice(cursor, m.start));
+      html += '<mark class="sev-' + m.rule.severity + '">' + escapeHtml(text.slice(m.start, m.end)) + "</mark>";
+      cursor = m.end;
+    }
+    html += escapeHtml(text.slice(cursor));
+    backdrop.innerHTML = html + "\n";
+  }
+
+  function issueWord(n) {
+    return n === 1 ? "issue" : "issues";
+  }
+
+  function renderScore(text, matches) {
+    copyBtn.disabled = !text;
+    if (!text.trim()) {
+      scoreEl.textContent = "Paste an email to check it.";
+      return;
+    }
+    var c = countsOf(matches);
+    var total = matches.length;
+    if (total === 0) {
+      scoreEl.innerHTML = "<strong>Clarity: looking good</strong> — no flagged phrases.";
+      return;
+    }
+    var bits = [];
+    if (c.fix) bits.push('<span class="dot dot-fix">' + c.fix + " fix</span>");
+    if (c.soften) bits.push('<span class="dot dot-soften">' + c.soften + " soften</span>");
+    if (c.tip) bits.push('<span class="dot dot-tip">' + c.tip + " tip</span>");
+    scoreEl.innerHTML = "<strong>Clarity: " + total + " " + issueWord(total) + " found</strong> <span class=\"dots\">" + bits.join("") + "</span>";
+  }
+
+  function renderIssues(matches) {
+    if (!matches.length) {
+      var empty = emailEl.value.trim()
+        ? '<p class="empty">No flagged phrases in this draft. Read it once out loud before you send.</p>'
+        : '<p class="empty">No phrases flagged yet. Paste a draft, or <em>try the example</em>.</p>';
+      issuesEl.innerHTML = empty;
+      return;
+    }
+    var html = "";
+    for (var i = 0; i < matches.length; i++) {
+      var m = matches[i];
+      var sev = m.rule.severity;
+      html += '<article class="card" data-index="' + i + '">';
+      html += '<div class="card-top"><span class="sev sev-' + sev + '-label">' + sev + "</span>";
+      html += '<p class="phrase">&ldquo;' + escapeHtml(m.text) + '&rdquo;</p></div>';
+      html += '<p class="why">' + escapeHtml(m.rule.why) + "</p>";
+      for (var r = 0; r < m.rule.replacements.length; r++) {
+        html += '<div class="repl"><p>' + escapeHtml(m.rule.replacements[r]) + "</p>";
+        html += '<button type="button" class="btn-tiny" data-replace="' + i + '" data-choice="' + r + '">Replace</button></div>';
+      }
+      html += "</article>";
+    }
+    issuesEl.innerHTML = html;
+  }
+
+  function autosize() {
+    emailEl.style.height = "auto";
+    var min = window.innerWidth < 840 ? 220 : 340;
+    var max = window.innerWidth < 840 ? Math.round(window.innerHeight * 0.42) : 100000;
+    var h = Math.max(min, emailEl.scrollHeight);
+    if (h > max) h = max;
+    emailEl.style.height = h + "px";
+    backdrop.scrollTop = emailEl.scrollTop;
+  }
+
+  function runCheck() {
+    var text = emailEl.value;
+    currentMatches = analyze(text);
+    renderBackdrop(text, currentMatches);
+    renderScore(text, currentMatches);
+    renderIssues(currentMatches);
+    autosize();
+  }
+
+  function applyReplace(index, choice) {
+    var m = currentMatches[index];
+    if (!m) return;
+    var text = emailEl.value;
+    var next = text.slice(0, m.start) + m.rule.replacements[choice] + text.slice(m.end);
+    var caret = m.start + m.rule.replacements[choice].length;
+    emailEl.value = next;
+    emailEl.setSelectionRange(caret, caret);
+    emailEl.focus();
+    runCheck();
+  }
+
+  function selectMatch(index) {
+    var m = currentMatches[index];
+    if (!m) return;
+    emailEl.focus();
+    emailEl.setSelectionRange(m.start, m.end);
+    var cards = issuesEl.querySelectorAll(".card");
+    for (var i = 0; i < cards.length; i++) cards[i].classList.toggle("is-active", i === index);
+  }
+
+  async function copyEmail() {
+    var text = emailEl.value;
+    if (!text) return;
+    var ok = false;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(text);
+        ok = true;
+      } catch (err) {
+        ok = false;
+      }
+    }
+    if (!ok) {
+      var start = emailEl.selectionStart;
+      var end = emailEl.selectionEnd;
+      emailEl.focus();
+      emailEl.select();
+      try {
+        ok = document.execCommand("copy");
+      } catch (err2) {
+        ok = false;
+      }
+      emailEl.setSelectionRange(start, end);
+    }
+    toast.textContent = ok ? "Copied." : "Copy failed — select the text and copy it yourself.";
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.textContent = ""; }, 2000);
+  }
+
+  function loadExample() {
+    emailEl.value = EXAMPLE;
+    toast.textContent = "";
+    runCheck();
+    emailEl.setSelectionRange(0, 0);
+    window.scrollTo(0, 0);
+  }
+
+  document.getElementById("btn-example").addEventListener("click", loadExample);
+  document.getElementById("btn-check").addEventListener("click", runCheck);
+  copyBtn.addEventListener("click", copyEmail);
+
+  emailEl.addEventListener("input", function () {
+    copyBtn.disabled = !emailEl.value;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(runCheck, 180);
+  });
+  emailEl.addEventListener("scroll", function () {
+    backdrop.scrollTop = emailEl.scrollTop;
+    backdrop.scrollLeft = emailEl.scrollLeft;
+  });
+
+  issuesEl.addEventListener("click", function (ev) {
+    var replaceBtn = ev.target.closest("[data-replace]");
+    if (replaceBtn) {
+      applyReplace(Number(replaceBtn.getAttribute("data-replace")), Number(replaceBtn.getAttribute("data-choice")));
+      return;
+    }
+    var card = ev.target.closest(".card");
+    if (card) selectMatch(Number(card.getAttribute("data-index")));
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if ((ev.metaKey || ev.ctrlKey) && ev.key === "Enter") {
+      ev.preventDefault();
+      runCheck();
+    }
+  });
+
+  if (/[?&]example=1(?:&|$)/.test(location.search)) loadExample();
+
+  window.EmailPhraseFixer = {
+    rules: RULES,
+    example: EXAMPLE,
+    analyze: analyze,
+    applyReplace: applyReplace,
+    runCheck: runCheck,
+    loadExample: loadExample
+  };
+})();
+
+  </script>
+</body>
+</html>
