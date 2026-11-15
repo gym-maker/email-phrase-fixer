@@ -317,6 +317,12 @@ footer .upsell.packs a { white-space: nowrap; }
   text-underline-offset: 3px;
 }
 .contextual-cta a:hover { color: var(--ink); }
+.contextual-cta .next-step {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--mute);
+  font-weight: 400;
+}
 .noscript {
   background: var(--amber-soft);
   border: 1px solid var(--amber);
@@ -400,6 +406,7 @@ footer .upsell.packs a { white-space: nowrap; }
 
     <footer>
       <p>If you write work emails in English, there is a free 5-template sample you can download: <a href="https://3368936654923.gumroad.com/l/pjgcqqj?utm_source=tools&amp;utm_campaign=email-phrase-fixer" target="_blank" rel="noopener">Send This Instead — free sample</a></p>
+      <p class="upsell quiet">If you want a small next step, there is a $3 pack of 15 hard workplace emails (decline, chase, apologize, resign, raise): <a href="https://3368936654923.gumroad.com/l/lgxfey?utm_source=tools&amp;utm_campaign=email-phrase-fixer_3usd" target="_blank" rel="noopener">Send This Instead — 15 hard emails</a></p>
     </footer>
   </div>
   <script>
@@ -521,9 +528,10 @@ window.__PHRASE_EXAMPLE__ = "Respected Sir,\n\nI hope this email finds you well.
   }
 
   var SAMPLE_CTA_HREF = "https://3368936654923.gumroad.com/l/pjgcqqj?utm_source=tools&utm_campaign=email-phrase-fixer";
+  var ENTRY_CTA_HREF = "https://3368936654923.gumroad.com/l/lgxfey?utm_source=tools&utm_campaign=email-phrase-fixer_3usd";
 
   function sampleCtaHtml() {
-    return '<p class="contextual-cta">If you write work emails in English, there is a free 5-template sample you can download: <a href="' + SAMPLE_CTA_HREF + '" target="_blank" rel="noopener">Send This Instead — free sample</a></p>';
+    return '<div class="contextual-cta"><p>If you write work emails in English, there is a free 5-template sample you can download: <a href="' + SAMPLE_CTA_HREF + '" target="_blank" rel="noopener">Send This Instead — free sample</a></p><p class="next-step">If you want a small next step, there is a $3 pack of 15 hard workplace emails (decline, chase, apologize, resign, raise): <a href="' + ENTRY_CTA_HREF + '" target="_blank" rel="noopener">Send This Instead — 15 hard emails</a></p></div>';
   }
 
   function renderIssues(matches) {
