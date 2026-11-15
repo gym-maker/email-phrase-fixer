@@ -399,17 +399,7 @@ footer .upsell.packs a { white-space: nowrap; }
     </div>
 
     <footer>
-      <p class="upsell quiet">
-        <a href="https://3368936654923.gumroad.com/l/efimbl?utm_source=phrasefixer&amp;utm_medium=cta&amp;utm_campaign=bundle12">All six email packs (175 emails) in one $12 bundle</a>
-      </p>
-      <p class="upsell quiet packs">
-        <a href="https://3368936654923.gumroad.com/l/uctkrr?utm_source=email_phrase_fixer&amp;utm_medium=tool&amp;utm_campaign=holiday5">Holiday emails ($5)</a>
-        ·
-        <a href="https://3368936654923.gumroad.com/l/ifltmf?utm_source=phrasefixer&amp;utm_medium=cta&amp;utm_campaign=jobsearch5">Job search emails ($5)</a>
-        ·
-        <a href="https://3368936654923.gumroad.com/l/mkupyy?utm_source=email_phrase_fixer&amp;utm_medium=tool&amp;utm_campaign=tracker5">Follow-up tracker ($5)</a>
-      </p>
-      <a href="https://3368936654923.gumroad.com/l/pjgcqqj">Made by Send This Instead · Get 5 free email templates</a>
+      <p>If you write work emails in English, there is a free 5-template sample you can download: <a href="https://3368936654923.gumroad.com/l/pjgcqqj?utm_source=tools&amp;utm_campaign=email-phrase-fixer" target="_blank" rel="noopener">Send This Instead — free sample</a></p>
     </footer>
   </div>
   <script>
@@ -530,33 +520,16 @@ window.__PHRASE_EXAMPLE__ = "Respected Sir,\n\nI hope this email finds you well.
     scoreEl.innerHTML = "<strong>Clarity: " + total + " " + issueWord(total) + " found</strong> <span class=\"dots\">" + bits.join("") + "</span>";
   }
 
-  var JOB_CTA_HREF = "https://3368936654923.gumroad.com/l/ifltmf?utm_source=phrasefixer&utm_medium=cta&utm_campaign=jobsearch5";
-  var JOB_CONTEXT_RE = /\b(?:my\s+application|your\s+application|applied\s+for|job\s+application|resumes?|curriculum\s+vitae|CVs?|cover\s+letter|hiring\s+manager|recruiters?|interviews?|interviewing|interviewer|candidacy|the\s+(?:open\s+)?(?:role|position|opening)|job\s+search|job\s+hunt(?:ing)?)\b/i;
-  var JOB_CTA_HINT_IDS = {
-    i_look_forward_hearing_from: true,
-    looking_forward_hearing_from: true,
-    circle_back: true
-  };
+  var SAMPLE_CTA_HREF = "https://3368936654923.gumroad.com/l/pjgcqqj?utm_source=tools&utm_campaign=email-phrase-fixer";
 
-  function shouldShowJobCta(text, matches) {
-    for (var i = 0; i < matches.length; i++) {
-      if (matches[i].rule.topic === "jobsearch") return true;
-    }
-    if (!JOB_CONTEXT_RE.test(text)) return false;
-    for (var j = 0; j < matches.length; j++) {
-      if (JOB_CTA_HINT_IDS[matches[j].rule.id]) return true;
-    }
-    return false;
-  }
-
-  function jobCtaHtml() {
-    return '<p class="contextual-cta">Job hunting? <a href="' + JOB_CTA_HREF + '">35 copy-paste job search emails ($5)</a></p>';
+  function sampleCtaHtml() {
+    return '<p class="contextual-cta">If you write work emails in English, there is a free 5-template sample you can download: <a href="' + SAMPLE_CTA_HREF + '" target="_blank" rel="noopener">Send This Instead — free sample</a></p>';
   }
 
   function renderIssues(matches) {
     if (!matches.length) {
       var empty = emailEl.value.trim()
-        ? '<p class="empty">No flagged phrases in this draft. Read it once out loud before you send.</p>'
+        ? '<p class="empty">No flagged phrases in this draft. Read it once out loud before you send.</p>' + sampleCtaHtml()
         : '<p class="empty">No phrases flagged yet. Paste a draft, or <em>try the example</em>.</p>';
       issuesEl.innerHTML = empty;
       return;
@@ -575,7 +548,7 @@ window.__PHRASE_EXAMPLE__ = "Respected Sir,\n\nI hope this email finds you well.
       }
       html += "</article>";
     }
-    if (shouldShowJobCta(emailEl.value, matches)) html += jobCtaHtml();
+    html += sampleCtaHtml();
     issuesEl.innerHTML = html;
   }
 
